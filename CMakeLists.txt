@@ -4,6 +4,7 @@ project(julia Fortran)
 
 link_directories(
   /usr/local/julia/lib
+  /usr/local/julia/lib/julia/
   )
 
 add_executable(julia_example
