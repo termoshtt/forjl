@@ -12,5 +12,12 @@ steps:
 
 - script: |
     sudo apt update
-    sudo apt install gfortran cmake
+    sudo apt install -y gfortran cmake
   displayName: 'Install gfortran and cmake'
+
+- script: |
+    cmake -Bbuild -H.
+    cd build
+    make
+    ./julia_example
+  displayName: 'Run Fortran program using Julia'
