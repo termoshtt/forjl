@@ -68,6 +68,6 @@ contains
     type(c_ptr)               :: atype
 
     atype = jl_apply_array_type(jl_float64_type, 1_int64)
-    array = jl_alloc_array_1d(atype, size)
+    array => jl_alloc_array_1d(atype, size)
   end
 end module
