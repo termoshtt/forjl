@@ -40,11 +40,18 @@ module julia
       integer(kind=c_int) st
     end subroutine
 
+    function jl_apply_array_type(atype, dim) result(array_type) bind(c)
+      use iso_c_binding
+      type(c_ptr), value :: atype
+      type(c_ptr)        :: array_type
+      integer(c_size_t)  :: dim
+    end
+
     function jl_alloc_array_1d(atype, size) result(array) bind(c)
       use iso_c_binding
       import jl_array_t
-      type(c_ptr)               :: atype
-      integer(kind=c_size_t)    :: size
+      type(c_ptr), value        :: atype
+      integer(c_size_t), value  :: size
       type(jl_array_t), pointer :: array
     end
   end interface
@@ -53,4 +60,14 @@ contains
   subroutine jl_init()
     call jl_init__threading()
   end subroutine
+
+  function float64_array_1d(size) result(array)
+    use iso_fortran_env
+    integer(c_size_t)         :: size
+    type(jl_array_t), pointer :: array
+    type(c_ptr)               :: atype
+
+    atype = jl_apply_array_type(jl_float64_type, 1_int64)
+    array = jl_alloc_array_1d(atype, size)
+  end
 end module
