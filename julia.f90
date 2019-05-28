@@ -12,6 +12,20 @@ module julia
     integer(c_size_t)  :: maxsize ! FIXME This cannot represents 2d or higher dim cases
   endtype
 
+  type(c_ptr), bind(C) :: jl_bool_type
+  type(c_ptr), bind(C) :: jl_char_type
+  type(c_ptr), bind(C) :: jl_int8_type
+  type(c_ptr), bind(C) :: jl_uint8_type
+  type(c_ptr), bind(C) :: jl_int16_type
+  type(c_ptr), bind(C) :: jl_uint16_type
+  type(c_ptr), bind(C) :: jl_int32_type
+  type(c_ptr), bind(C) :: jl_uint32_type
+  type(c_ptr), bind(C) :: jl_int64_type
+  type(c_ptr), bind(C) :: jl_uint64_type
+  type(c_ptr), bind(C) :: jl_float16_type
+  type(c_ptr), bind(C) :: jl_float32_type
+  type(c_ptr), bind(C) :: jl_float64_type
+
   interface
     subroutine jl_init__threading() bind(c)
     end subroutine
