@@ -1,4 +1,9 @@
+# For julia
 *.jl.cov
 *.jl.*.cov
 *.jl.mem
 deps/deps.jl
+
+# For Fortran/CMake
+build/
+*.mod
