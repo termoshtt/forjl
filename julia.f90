@@ -1,5 +1,10 @@
 module julia
+  use iso_c_binding
   implicit none
+
+  type, bind(C) :: jl_array_t
+    type(c_ptr) :: data_
+  endtype
 
   interface
     subroutine jl_init__threading() bind(c)
