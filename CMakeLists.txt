@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(julia Fortran)
 
-# XXX Why there is no way to install julia into ubuntu system ???
-link_directories($ENV{HOME}/Downloads/julia-1.1.1/lib)
+link_directories(
+  /usr/local/julia/lib
+  )
 
 add_executable(julia_example
   julia.f90
