@@ -7,10 +7,10 @@ steps:
     curl -LO https://julialang-s3.julialang.org/bin/linux/x64/1.1/julia-1.1.1-linux-x86_64.tar.gz
     tar xf julia-1.1.1-linux-x86_64.tar.gz
     rm julia-1.1.1-linux-x86_64.tar.gz
-    mv julia-1.1.1 /usr/local/julia
+    sudo mv julia-1.1.1 /usr/local/julia
   displayName: 'Download Julia v1.1.1'
 
 - script: |
-    apt update
-    apt install gfortran cmake
+    sudo apt update
+    sudo apt install gfortran cmake
   displayName: 'Install gfortran and cmake'
