@@ -18,6 +18,5 @@ steps:
 - script: |
     cmake -Bbuild -H.
     cd build
-    make
-    ./julia_example
+    make test
   displayName: 'Run Fortran program using Julia'
