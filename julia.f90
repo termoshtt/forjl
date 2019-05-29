@@ -60,14 +60,4 @@ contains
   subroutine jl_init()
     call jl_init__threading()
   end subroutine
-
-  function float64_array_1d(size) result(array)
-    use iso_fortran_env
-    integer(c_size_t)         :: size
-    type(jl_array_t), pointer :: array
-    type(c_ptr)               :: atype
-
-    atype = jl_apply_array_type(jl_float64_type, 1_int64)
-    array => jl_alloc_array_1d(atype, size)
-  end
 end module
